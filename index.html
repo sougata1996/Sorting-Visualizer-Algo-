@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sorting Visualizer</title>
+	<link rel="stylesheet" type="text/css" href="CSS/mainpage.css">
+</head>
+
+<body>
+	<div class="header">
+		<h1 class="title">Sorting Visualizer</h1>
+		<div class="vars">
+			<button class="newarray" onclick="reset()">Generate New Array</button>
+			<div class="input-field">
+				<select name="algorithms" class="validate" required onchange="valueCheck(value);">
+				  <option value="" disabled selected>Select Sorting Algorithm</option>
+				  <option value="Bubble Sort">Bubble Sort</option>
+				  <option value="Selection Sort">Selection Sort</option>
+				  <option value="Insertion Sort" >Insertion Sort</option>
+				  <option value="Merge Sort" >Merge Sort</option>
+				  <option value="Quick Sort" >Quick Sort</option>
+				  <option value="Heap Sort" >Heap Sort</option>
+				</select>
+			  </div>
+			<div class="range">
+				<div class="slide"><label for="bars">ِArray Size</label> : <input id="bars" type="range" name="bars"
+						min="1" max="100" value="50" oninput="setup()" onchange="setup()">
+					<span id="b"> </span></div>
+				<div class="slide"><label for="delay">Speed</label> : <input id="delay" type="range" name="delay"
+						min="0" max="1000" value="25" oninput="setup()" onchange="setup()">
+					<span id="d"></span></div>
+			</div>
+			<script>
+				function valueCheck(value){
+					if(value==="Bubble Sort")
+					{
+						BubbleSort();
+					}
+					else if(value==="Selection Sort")
+					{
+						SelectionSort();
+					}
+					else if(value==="Insertion Sort")
+					{
+						InsertionSort();
+					}
+					else if(value==="Merge Sort")
+					{
+						MergeSort();
+					}
+					else if(value==="Quick Sort")
+					{
+						QuickSort();
+					}
+					else{
+						HeapSort();
+					}
+				}
+			</script>
+			
+			<div class="inputfile">
+				<input type="file" accept=".txt"/>
+			</div>
+			<button class="submitbutton">Submit</button>
+			
+		</div>
+	</div>
+	<div id="container">
+	</div>
+	<script src="JS/sound.js"></script>
+	<script src="JS/algos.js"></script>
+</body>
+
+</html>
